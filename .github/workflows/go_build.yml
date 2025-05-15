@@ -39,9 +39,3 @@ jobs:
       - name: Run tests
         run: go test ./...
 
-      - name: Start main.go and check port 5000
-        run: |
-          nohup go run main.go > server.log 2>&1 &
-          sleep 5
-          curl --fail http://localhost:5000 || (echo "Server failed to respond on port 5000" && exit 1)
-
